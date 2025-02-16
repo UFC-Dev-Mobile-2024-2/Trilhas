@@ -73,7 +73,7 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
-      <Navbar />
+      <Navbar selected={"perfil"} />
     </View>
   );
 }
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
-    paddingBottom: 100,
+    paddingBottom: 110,
   },
   
   /* Avatar e descrição */
