@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+
 
   const handleLogin = () => {
     if (email && password) {

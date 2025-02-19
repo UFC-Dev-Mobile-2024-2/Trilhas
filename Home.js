@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { Button, Card } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
+
 
   return (
     <View style={styles.container}>
