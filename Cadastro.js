@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 
 export default function CadastroScreen() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
-  const navigation = useNavigation();
+  
 
   const handleCadastro = () => {
     if (!nome || !email || !senha || !confirmarSenha) {
@@ -20,7 +19,7 @@ export default function CadastroScreen() {
       return;
     }
     alert(`Cadastro realizado com sucesso!\nBem-vindo, ${nome}!`);
-    navigation.navigate('Login');
+   
   };
 
   return (
