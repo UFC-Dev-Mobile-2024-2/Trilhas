@@ -2,9 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 
-
 export default function HomeScreen() {
-
 
   return (
     <View style={styles.container}>
@@ -13,7 +11,7 @@ export default function HomeScreen() {
 
           <Text style={styles.companyName}>Trilhas</Text>
 
-          <Image source={require('./assets/logo01.png')} style={styles.logo} />
+          <Image source={require('../assets/icons/logo.png')} style={styles.logo} />
 
           {/* Botão de Login */}
           <Button mode="contained" onPress={() => navigation.navigate('Login')} style={styles.loginButton}>

@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
 
-
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
 
   const handleLogin = () => {
     if (email && password) {
@@ -23,7 +21,7 @@ export default function LoginScreen() {
 
           <Title style={styles.nome}>Trilhas</Title>
 
-          <Image source={require('./assets/logo01.png')} style={styles.logo} />
+          <Image source={require('../assets/icons/logo.png')} style={styles.logo} />
 
           <TextInput
             label="Email"

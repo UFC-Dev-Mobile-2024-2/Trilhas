@@ -1,14 +1,14 @@
 import { ScrollView, View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-paper';
 import { useFonts } from 'expo-font';
-import Navbar from './components/Navbar';
-import fontStyles from './styles/fontStyles';
+import Navbar from '../components/Navbar';
+import fontStyles from '../styles/fontStyles';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-    'Roboto-SemiBold': require('./assets/fonts/Roboto-SemiBold.ttf')
+    'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-SemiBold': require('../assets/fonts/Roboto-SemiBold.ttf')
   });
 
   if (!fontsLoaded) return null;
@@ -22,7 +22,7 @@ export default function App() {
           <View style={styles.upnavbar}> 
 
             <Text style={[fontStyles.m3_headline_medium, { fontSize: 20 }]}>Cadastro de Trilha</Text>
-            <Image source={require('./assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
+            <Image source={require('../assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
 
           </View>
 
@@ -62,7 +62,6 @@ export default function App() {
     </View>
   );
 }
-
 
 // Componente Card
 const Barra = ({ type }) => (

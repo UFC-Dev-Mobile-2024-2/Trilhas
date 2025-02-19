@@ -1,14 +1,14 @@
 import { ScrollView, View, StyleSheet, Platform, Image, Text } from 'react-native';
 import { Card } from 'react-native-paper';
 import { useFonts } from 'expo-font';
-import Navbar from './components/Navbar';
-import fontStyles from './styles/fontStyles';
+import Navbar from '../components/Navbar';
+import fontStyles from '../styles/fontStyles';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-    'Roboto-SemiBold': require('./assets/fonts/Roboto-SemiBold.ttf')
+    'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-SemiBold': require('../assets/fonts/Roboto-SemiBold.ttf')
   });
   if (!fontsLoaded) return null;
 
@@ -28,7 +28,7 @@ export default function App() {
 
         <View style={styles.day_info}>
           <View style={styles.degrees}>
-            <Image source={require('./assets/icons/sun.png')} style={{ width: 52, height: 52 }} />
+            <Image source={require('../assets/icons/sun.png')} style={{ width: 52, height: 52 }} />
             <Text style={fontStyles.m3_display_medium}> 31° </Text>
           </View>
           <Text style={[fontStyles.m3_headline_medium, styles.sunny]}> Ensolarado </Text>
@@ -43,7 +43,7 @@ export default function App() {
                 <Text style={fontStyles.m3_title_small}> {day.day} </Text>
               </View>
               <View style={styles.weather_of_the_day}>
-                <Image source={require('./assets/icons/sun.png')} style={{ width: 24, height: 24 }} />
+                <Image source={require('../assets/icons/sun.png')} style={{ width: 24, height: 24 }} />
                 <Text style={fontStyles.m3_title_small}> {day.temp} </Text>
               </View>
             </View>

@@ -1,14 +1,14 @@
 import { ScrollView, View, StyleSheet, Platform, Image, Text } from 'react-native';
 import { Avatar } from 'react-native-paper';
 import { useFonts } from 'expo-font';
-import Navbar from './components/Navbar';
-import fontStyles from './styles/fontStyles';
+import Navbar from '../components/Navbar';
+import fontStyles from '../styles/fontStyles';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-    'Roboto-SemiBold': require('./assets/fonts/Roboto-SemiBold.ttf')
+    'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-SemiBold': require('../assets/fonts/Roboto-SemiBold.ttf')
   });
   if (!fontsLoaded) return null;
 
@@ -52,9 +52,9 @@ export default function App() {
         <View style={styles.achievements}>
           <Text style={fontStyles.m3_title_medium}> Conquistas </Text>
           <View style={styles.achievements_images}>
-            <Image source={require('./assets/images/avatar_1.png')} style={{ width: 100, height: 100 }} />
-            <Image source={require('./assets/images/avatar_2.png')} style={{ width: 100, height: 100 }} />
-            <Image source={require('./assets/images/avatar_3.png')} style={{ width: 100, height: 100 }} />
+            <Image source={require('../assets/images/avatar_1.png')} style={{ width: 100, height: 100 }} />
+            <Image source={require('../assets/images/avatar_2.png')} style={{ width: 100, height: 100 }} />
+            <Image source={require('../assets/images/avatar_3.png')} style={{ width: 100, height: 100 }} />
           </View>
         </View>
 
@@ -62,13 +62,13 @@ export default function App() {
           <Text style={fontStyles.m3_title_medium}> Galeria </Text>
           <View style={styles.gallery_images}>
             <View style={styles.imageContainer}>
-              <Image source={require('./assets/images/hiking_1.png')} style={{ width: 100, height: 100 }} />
+              <Image source={require('../assets/images/hiking_1.png')} style={{ width: 100, height: 100 }} />
             </View>
             <View style={styles.imageContainer}>
-              <Image source={require('./assets/images/hiking_2.png')} style={{ width: 100, height: 100 }} />
+              <Image source={require('../assets/images/hiking_2.png')} style={{ width: 100, height: 100 }} />
             </View>
             <View style={styles.imageContainer}>
-              <Image source={require('./assets/images/hiking_3.png')} style={{ width: 100, height: 100 }} />
+              <Image source={require('../assets/images/hiking_3.png')} style={{ width: 100, height: 100 }} />
             </View>
           </View>
         </View>
@@ -83,7 +83,7 @@ const Avatar_Profile = () => (
     style={styles.avatar}
     size={120}
     icon={() => (
-      <Image source={require('./assets/icons/avatar_placeholder.png')} style={{ width: 85, height: 77 }} />
+      <Image source={require('../assets/icons/avatar_placeholder.png')} style={{ width: 85, height: 77 }} />
     )}
   />
 );

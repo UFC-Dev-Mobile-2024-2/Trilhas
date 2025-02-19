@@ -7,7 +7,6 @@ export default function CadastroScreen() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
-  
 
   const handleCadastro = () => {
     if (!nome || !email || !senha || !confirmarSenha) {
@@ -29,7 +28,7 @@ export default function CadastroScreen() {
 
           <Title style={styles.nome}>Trilhas</Title>
 
-          <Image source={require('./assets/logo01.png')} style={styles.logo} />
+          <Image source={require('../assets/icons/logo.png')} style={styles.logo} />
 
           <TextInput
             label="Nome"

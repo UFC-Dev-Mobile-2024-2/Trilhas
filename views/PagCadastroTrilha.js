@@ -1,14 +1,12 @@
-import { ScrollView, View, StyleSheet, Platform, Image, Text, TouchableOpacity } from 'react-native'; // Adicionei TouchableOpacity
-import { Card } from 'react-native-paper';
+import { ScrollView, View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native'; // Adicionei TouchableOpacity
 import { useFonts } from 'expo-font';
-import Navbar from './components/Navbar';
-import fontStyles from './styles/fontStyles';
+import fontStyles from '../styles/fontStyles';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-    'Roboto-SemiBold': require('./assets/fonts/Roboto-SemiBold.ttf')
+    'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
+    'Roboto-SemiBold': require('../assets/fonts/Roboto-SemiBold.ttf')
   });
 
   if (!fontsLoaded) return null;
@@ -20,7 +18,7 @@ export default function App() {
         <View style={styles.conteudo}>
 
           <View style={styles.topo}>
-            <Image source={require('./assets/icons/cenario.png')} style={{ width: 180, height: 180 }} />
+            <Image source={require('../assets/icons/cenario.png')} style={{ width: 180, height: 180 }} />
           </View>
 
           <View style={styles.titulo}>
@@ -42,23 +40,20 @@ export default function App() {
 
       {/* Botoes */}
       <View style={styles.botaoContainer}>
-
         <TouchableOpacity style={styles.botaoSeguir} >
           <Text style={styles.textoBotao}>Próximo</Text>
         </TouchableOpacity>
-        
       </View>
 
       {/* Pontinhos de paginação */}
       <View style={styles.paginacao}>
-        <View style={[styles.ponto, styles.pontoAtivo]} /> {/* Ponto ativo */}
+        <View style={[styles.ponto, styles.pontoAtivo]} />
         <View style={styles.ponto} />
         <View style={styles.ponto} />
         <View style={styles.ponto} />
         <View style={styles.ponto} />
       </View>
-
-      
+    
     </View>
   );
 }
@@ -107,7 +102,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: 'center',
- 
   },
   textoBotao: {
     color: 'black',
