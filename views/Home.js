@@ -14,12 +14,12 @@ export default function HomeScreen() {
           <Image source={require('../assets/icons/logo.png')} style={styles.logo} />
 
           {/* Botão de Login */}
-          <Button mode="contained" onPress={() => navigation.navigate('Login')} style={styles.loginButton}>
+          <Button mode="contained" onPress={() => navigation.navigate('Login')} style={styles.loginButton} buttonColor="#35CC8E">
             Entrar
           </Button>
 
           {/* Botão de Cadastro */}
-          <Button mode="text" onPress={() => navigation.navigate('Cadastro')} style={styles.signupButton}>
+          <Button mode="text" onPress={() => navigation.navigate('Cadastro')} style={styles.signupButton} buttonColor="#F98414" textColor="black">
             Não tem uma conta? Cadastre-se
           </Button>
         </Card.Content>

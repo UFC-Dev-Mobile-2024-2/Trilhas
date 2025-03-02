@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Alert } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
+
+import axios from 'axios'; 
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (email && password) {
-      alert(`Bem-vindo, ${email}!`);
-    } else {
-      alert('Por favor, preencha todos os campos!');
+  const handleLogin = async () => {
+    if(!email || !password) {
+      Alert.alert('Erro','Por favor, preencha todos os campos!');
+      return
+    }
+
+    try { 
+      const response = await axios.post('https://reqres.in/api/login',{
+        email,
+        password
+      });
+
+      // Se o login for bem-sucedido, recebemos um token
+      Alert.alert('Sucesso', 'Login realizado com sucesso!');
+      console.log('Token:', response.data.token);
+      
+      // Redireciona para a Home após o login
+      navigation.navigate('Perfil');
+
+    } catch(error) {
+      Alert.alert('Erro', 'Credenciais inválidas! Verifique seu email e senha.');
+      console.log('Erro:', error.response?.data || error.message);
     }
   };
 
@@ -40,12 +59,12 @@ export default function LoginScreen() {
             secureTextEntry
           />
 
-          <Button mode="contained" onPress={handleLogin} style={styles.button}>
+          <Button mode="contained" onPress={handleLogin} style={styles.button} buttonColor="#35CC8E">
             Entrar
           </Button>
         </Card.Content>
 
-        <Button mode="text" onPress={() => navigation.navigate('Cadastro')} style={styles.cadastroButton}>
+        <Button mode="text" onPress={() => navigation.navigate('Cadastro')} style={styles.cadastroButton} textColor="#F98414">
           Não tem uma conta? Cadastre-se
         </Button>
       </Card>
@@ -89,5 +108,6 @@ const styles = StyleSheet.create({
 
   button: {
     marginTop: 10,
+    
   },
 });
