@@ -1,4 +1,3 @@
-
 # Aplicativo "Trilhas" 🚵🥾
 
 Aplicativo desenvolvido em React Native para a disciplina de Projeto de Interfaces para Dispositivos Móveis do semestre 2024.2 de Design Digital na UFC, Campus Quixadá.
@@ -14,6 +13,7 @@ Durante o processo de desenvolvimento, serão utilizadas as seguintes ferramenta
 2. **Linguagem:** JavaScript.
 3. **Componentes:** Utilização da biblioteca React Native Paper.
 4. **Estilização:** Customização de interfaces usando StyleSheet.
+5. **REST-API:** Reqres.
 
 ## Equipe do Projeto:
 
@@ -56,4 +56,13 @@ npm start
 6. **Abra o Expo Go:**
 Após executar **_npm start_**, um QR code será gerado. Abra o aplicativo Expo Go no seu celular (disponível na Play Store ou App Store) e escaneie o QR Code para visualizar a aplicação em execução.
 
-Com isso, você poderá visualizar a tela do aplicativo que está definida para aparecer no arquivo **index.js**. Caso queira alternar entre as telas desenvolvidas, sem precisar da interação com os elementos para desencadear essa ação, basta trocar o nome da tela na linha ```import App from './nome_da_tela'``` em **index.js** pelo nome de um arquivo referente a uma das telas desenvolvidas.
+Assim, será possível visualizar e interagir com as telas do aplicativo, cuja navegação é gerenciada pelo arquivo **appnavigation.js**.
+
+## Fazendo Login:
+
+Para este projeto, utilizamos a REST-API Reqres para simular o login da aplicação (o cadastro de usuário também é simulado). Portanto, para executar o login e acessar as demais telas do aplicativo, utilize os dados abaixo:
+
+```bash
+email: eve.holt@reqres.in
+senha: cityslicka
+```
