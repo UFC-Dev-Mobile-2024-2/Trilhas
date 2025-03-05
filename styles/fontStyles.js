@@ -26,6 +26,11 @@ const fontStyles = StyleSheet.create({
     fontSize: 14,
     color: '#1D1B20',
   },
+  m3_label_large: {
+    fontFamily: 'Roboto-Medium',
+    fontSize: 14,
+    color: '#FFFFFF',
+  },
   m3_label_medium_navbar: {
     fontFamily: 'Roboto-Medium',
     fontSize: 14,

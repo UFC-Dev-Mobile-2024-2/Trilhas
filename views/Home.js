@@ -2,8 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 
-export default function HomeScreen() {
-
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Card style={styles.card}>

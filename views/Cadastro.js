@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
 
-export default function CadastroScreen() {
+export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const handleCadastro = () => {
-    if (!nome || !email || !senha || !confirmarSenha) {
+    if (!nome || !email || !password || !confirmPassword) {
       alert('Por favor, preencha todos os campos!');
       return;
     }
-    if (senha !== confirmarSenha) {
+    if (password !== confirmPassword) {
       alert('As senhas não coincidem!');
       return;
     }
@@ -48,18 +50,30 @@ export default function CadastroScreen() {
 
           <TextInput
             label="Senha"
-            value={senha}
-            onChangeText={setSenha}
+            value={password}
+            onChangeText={setPassword}
             style={styles.input}
-            secureTextEntry
+            secureTextEntry={!passwordVisible}
+            right={
+              <TextInput.Icon 
+                icon={passwordVisible ? 'eye-off' : 'eye'}
+                onPress={() => setPasswordVisible(!passwordVisible)}
+              />
+            }
           />
 
           <TextInput
             label="Confirmar Senha"
-            value={confirmarSenha}
-            onChangeText={setConfirmarSenha}
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
             style={styles.input}
-            secureTextEntry
+            secureTextEntry={!confirmPasswordVisible}
+            right={
+              <TextInput.Icon 
+                icon={confirmPasswordVisible ? 'eye-off' : 'eye'}
+                onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+              />
+            }
           />
 
           <Button mode="contained" onPress={handleCadastro} style={styles.button}>

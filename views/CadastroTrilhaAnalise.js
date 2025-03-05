@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import Navbar from '../components/Navbar';
 import fontStyles from '../styles/fontStyles';
 
-export default function App() {
+export default function AnalysisScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
@@ -20,15 +20,14 @@ export default function App() {
 
           {/* Parte de cima */}
           <View style={styles.upnavbar}> 
-
             <Text style={[fontStyles.m3_headline_medium, { fontSize: 20 }]}>Cadastro de Trilha</Text>
-            <Image source={require('../assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
-
+            <TouchableOpacity onPress={() => navigation.navigate('HomeMenu')}>
+              <Image source={require('../assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
+            </TouchableOpacity>
           </View>
 
           {/* Pop-up */}
           <View style={styles.popup}>
-
             <View style={styles.caixas}>
 
               {/* titulo */}
@@ -40,19 +39,19 @@ export default function App() {
               </Text>
 
               {/* confirmar */}
-              <TouchableOpacity style={styles.botaoConfirmar} >
+              <TouchableOpacity
+                style={styles.botaoConfirmar}
+                onPress={() => navigation.navigate('HomeMenu')}
+              >
                 <Text style={styles.textoBotaoConfirmar}>Confirmar</Text>
               </TouchableOpacity>
 
             </View>
-
           </View>
-
         </View>
-
       </ScrollView>
 
-      <Navbar selected={"trilhas"} />
+      <Navbar selected={"trilhas"} navigation={navigation} />
     </View>
   );
 }
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between', 
     alignItems: 'center', 
-    marginTop: 60,
+    marginTop: 40,
     marginBottom: 30,
     paddingHorizontal: 20,
   },
