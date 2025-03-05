@@ -1,8 +1,9 @@
-import { ScrollView, View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native'; // Adicionei TouchableOpacity
+import { ScrollView, View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
+import Navbar from '../components/Navbar';
 import fontStyles from '../styles/fontStyles';
 
-export default function App() {
+export default function InstructionsScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
@@ -16,44 +17,49 @@ export default function App() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
 
         <View style={styles.conteudo}>
-
           <View style={styles.topo}>
             <Image source={require('../assets/icons/cenario.png')} style={{ width: 180, height: 180 }} />
           </View>
 
           <View style={styles.titulo}>
-            <Text style={[fontStyles.m3_headline_bold, { fontSize: 20 }]}>Instruções</Text>
-          </View>
-
-          <View style={styles.subtitulo}>
-            <Text style={[fontStyles.m3_headline_medium, { fontSize: 20 }]}>subtitulo</Text>
-          </View>
-
-          <View style={styles.texto}>
-            <Text style={[fontStyles.m3_headline_medium, { fontSize: 13 }]}>
-              Dê um nome para a trilha que você quer cadastrar. Escolha algo que a identifique facilmente, como "Trilha do Pico" ou "Caminho das Cachoeiras".
+            <Text style={[fontStyles.m3_headline_bold, { fontSize: 20 }]}>
+              Instruções
             </Text>
           </View>
 
+          <View style={styles.subtitulo}>
+            <Text style={[fontStyles.m3_headline_medium, { fontSize: 20 }]}>
+              Escolha o nome da trilha
+            </Text>
+          </View>
+
+          <View style={styles.texto}>
+            <Text style={[fontStyles.m3_headline_medium, { fontSize: 13, textAlign: 'center' }]}>
+              Dê um nome para a trilha que você quer cadastrar. Escolha algo que a identifique facilmente, como "Trilha do Pico" ou "Caminho das Cachoeiras".
+            </Text>
+          </View>
+        </View>
+
+        {/* Botoes */}
+        <View style={styles.botaoContainer}>
+          <TouchableOpacity
+            style={styles.botaoSeguir}
+            onPress={() => navigation.navigate('CadastroTrilha')}
+          >
+            <Text style={styles.textoBotao}>Próximo</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Pontinhos de paginação */}
+        <View style={styles.paginacao}>
+          <View style={[styles.ponto, styles.pontoAtivo]} />
+          <View style={styles.ponto} />
+          <View style={styles.ponto} />
+          <View style={styles.ponto} />
+          <View style={styles.ponto} />
         </View>
       </ScrollView>
-
-      {/* Botoes */}
-      <View style={styles.botaoContainer}>
-        <TouchableOpacity style={styles.botaoSeguir} >
-          <Text style={styles.textoBotao}>Próximo</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Pontinhos de paginação */}
-      <View style={styles.paginacao}>
-        <View style={[styles.ponto, styles.pontoAtivo]} />
-        <View style={styles.ponto} />
-        <View style={styles.ponto} />
-        <View style={styles.ponto} />
-        <View style={styles.ponto} />
-      </View>
-    
+      <Navbar selected={"trilhas"} navigation={navigation} />
     </View>
   );
 }
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
   /* Informações do dia */
   conteudo: {
     alignItems: 'center',
-    marginTop: 100,
+    marginTop: 70,
     marginBottom: 45,
   },
   topo: {
@@ -92,8 +98,8 @@ const styles = StyleSheet.create({
   /* Estilo do botão */
   botaoContainer: {
     position: 'absolute', // Posiciona o botão absolutamente
-    bottom: 100, 
-    right: 20, 
+    bottom: 100,
+    // right: 20,
   },
   botaoSeguir: {
     borderWidth: 1,

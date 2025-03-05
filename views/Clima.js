@@ -1,10 +1,10 @@
-import { ScrollView, View, StyleSheet, Platform, Image, Text } from 'react-native';
+import { ScrollView, View, StyleSheet, Image, Text } from 'react-native';
 import { Card } from 'react-native-paper';
 import { useFonts } from 'expo-font';
 import Navbar from '../components/Navbar';
 import fontStyles from '../styles/fontStyles';
 
-export default function App() {
+export default function WeatherScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
@@ -66,7 +66,7 @@ export default function App() {
         </View>
 
       </ScrollView>
-      <Navbar selected={"clima"} />
+      <Navbar selected={"clima"} navigation={navigation} />
     </View>
   );
 }
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   /* Informações do dia */
   day_info: {
     alignItems: 'center',
-    marginTop: 100,
+    marginTop: 50,
     marginBottom: 45,
   },
   degrees: {

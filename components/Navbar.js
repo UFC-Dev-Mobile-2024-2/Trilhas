@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
 import fontStyles from '../styles/fontStyles';
 
@@ -12,50 +12,56 @@ const Navbar = (props) => {
 
   return (
     <View style={styles.navBar}>
-      <View>
-        {props.selected === "trilhas" ? (
-          <View style={styles.navItem}>
-            <View style={styles.selectedBackground} />
-            <Image source={require('../assets/icons/road.png')} style={{ width: 27, height: 28 }} />
-            <Text style={fontStyles.m3_label_medium_prominent_navbar}> Trilhas </Text>
-          </View>
-        ) : (
-          <View style={styles.navItem}>
-            <Image source={require('../assets/icons/road.png')} style={{ width: 27, height: 28 }} />
-            <Text style={fontStyles.m3_label_medium_navbar}> Trilhas </Text>
-          </View>
-        )}
-      </View>
+      <TouchableOpacity onPress={() => props.navigation.navigate('HomeMenu')}>
+        <View>
+          {props.selected === "trilhas" ? (
+            <View style={styles.navItem}>
+              <View style={styles.selectedBackground} />
+              <Image source={require('../assets/icons/road.png')} style={{ width: 27, height: 28 }} />
+              <Text style={fontStyles.m3_label_medium_prominent_navbar}> Trilhas </Text>
+            </View>
+          ) : (
+            <View style={styles.navItem}>
+              <Image source={require('../assets/icons/road.png')} style={{ width: 27, height: 28 }} />
+              <Text style={fontStyles.m3_label_medium_navbar}> Trilhas </Text>
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
 
-      <View>
-        {props.selected === "clima" ? (
-          <View style={styles.navItem}>
-            <View style={styles.selectedBackground} />
-            <Image source={require('../assets/icons/cloudy.png')} style={{ width: 28, height: 28 }} />
-            <Text style={fontStyles.m3_label_medium_prominent_navbar}> Clima </Text>
-          </View>
-        ) : (
-          <View style={styles.navItem}>
-            <Image source={require('../assets/icons/cloudy.png')} style={{ width: 28, height: 28 }} />
-            <Text style={fontStyles.m3_label_medium_navbar}> Clima </Text>
-          </View>
-        )}
-      </View>
+      <TouchableOpacity onPress={() => props.navigation.navigate('Clima')}>
+        <View>
+          {props.selected === "clima" ? (
+            <View style={styles.navItem}>
+              <View style={styles.selectedBackground} />
+              <Image source={require('../assets/icons/cloudy.png')} style={{ width: 28, height: 28 }} />
+              <Text style={fontStyles.m3_label_medium_prominent_navbar}> Clima </Text>
+            </View>
+          ) : (
+            <View style={styles.navItem}>
+              <Image source={require('../assets/icons/cloudy.png')} style={{ width: 28, height: 28 }} />
+              <Text style={fontStyles.m3_label_medium_navbar}> Clima </Text>
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
 
-      <View>
-        {props.selected === "perfil" ? (
-          <View style={styles.navItem}>
-            <View style={styles.selectedBackground} />
-            <Image source={require('../assets/icons/profile.png')} style={{ width: 24, height: 24, marginTop: 5 }} />
-            <Text style={fontStyles.m3_label_medium_prominent_navbar}> Perfil </Text>
-          </View>
-        ) : (
-          <View style={styles.navItem}>
-            <Image source={require('../assets/icons/profile.png')} style={{ width: 24, height: 24, marginTop: 5 }} />
-            <Text style={fontStyles.m3_label_medium_prominent}> Perfil </Text>
-          </View>
-        )}
-      </View>
+      <TouchableOpacity onPress={() => props.navigation.navigate('Perfil')}>
+        <View>
+          {props.selected === "perfil" ? (
+            <View style={styles.navItem}>
+              <View style={styles.selectedBackground} />
+              <Image source={require('../assets/icons/profile.png')} style={{ width: 24, height: 24, marginTop: 5 }} />
+              <Text style={fontStyles.m3_label_medium_prominent_navbar}> Perfil </Text>
+            </View>
+          ) : (
+            <View style={styles.navItem}>
+              <Image source={require('../assets/icons/profile.png')} style={{ width: 24, height: 24, marginTop: 5 }} />
+              <Text style={fontStyles.m3_label_medium_prominent}> Perfil </Text>
+            </View>
+          )}
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }

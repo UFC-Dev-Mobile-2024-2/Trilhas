@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import Navbar from '../components/Navbar';
 import fontStyles from '../styles/fontStyles';
 
-export default function App() {
+export default function TrilhaRegisterScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
@@ -13,6 +13,11 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
+  const handleSalvarCadastro = (action) => {
+    alert('Cadastro salvo!');
+    action();
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -20,10 +25,10 @@ export default function App() {
 
           {/* Parte de cima */}
           <View style={styles.upnavbar}> 
-
             <Text style={[fontStyles.m3_headline_medium, { fontSize: 20 }]}>Cadastro de Trilha</Text>
-            <Image source={require('../assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
-
+            <TouchableOpacity onPress={() => navigation.navigate('HomeMenu')}>
+              <Image source={require('../assets/icons/containerX.png')} style={{ width: 20, height: 50 }} />
+            </TouchableOpacity>
           </View>
 
           {/* Parte do meio */}
@@ -46,11 +51,17 @@ export default function App() {
           {/* Botoes de baixo */}
           <View style={styles.botoesContainer}>
 
-            <TouchableOpacity style={styles.botaoSalvar} onPress={() => alert('Cadastro Salvo!')}>
+            <TouchableOpacity
+              style={styles.botaoSalvar}
+              onPress={() => handleSalvarCadastro(() => navigation.navigate('CadastroTrilhaAnalise'))}
+            >
               <Text style={styles.textoBotaoS}>Salvar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.botaoCancelar}>
+            <TouchableOpacity
+              style={styles.botaoCancelar}
+              onPress={() => navigation.navigate('HomeMenu')}
+            >
               <Text style={styles.textoBotaoC}>Cancelar</Text>
             </TouchableOpacity>
 
@@ -58,18 +69,20 @@ export default function App() {
 
         </View>
       </ScrollView>
-      <Navbar selected={"trilhas"} />
+      <Navbar selected={"trilhas"} navigation={navigation} />
     </View>
   );
 }
 
 // Componente Card
 const Barra = ({ type }) => (
-  <Card style={styles.caixadentro}>
-    <Card.Content>
-      <Text style={fontStyles.m3_body_small_weatherCard}>{type}</Text>
-    </Card.Content>
-  </Card>
+  <TouchableOpacity onPress={() => console.log(`${type} clicado!`)}>
+    <Card style={styles.caixadentro}>
+      <Card.Content>
+        <Text style={fontStyles.m3_body_small_weatherCard}>{type}</Text>
+      </Card.Content>
+    </Card>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
@@ -89,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between', 
     alignItems: 'center', 
-    marginTop: 60,
+    marginTop: 40,
     marginBottom: 30,
     paddingHorizontal: 20,
   },

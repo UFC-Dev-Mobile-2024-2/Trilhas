@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, Alert } from 'react-native';
 import { TextInput, Button, Card, Title } from 'react-native-paper';
-
 import axios from 'axios'; 
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleLogin = async () => {
     if(!email || !password) {
@@ -25,7 +25,7 @@ export default function LoginScreen() {
       console.log('Token:', response.data.token);
       
       // Redireciona para a Home após o login
-      navigation.navigate('Perfil');
+      navigation.navigate('HomeMenu');
 
     } catch(error) {
       Alert.alert('Erro', 'Credenciais inválidas! Verifique seu email e senha.');
@@ -56,7 +56,13 @@ export default function LoginScreen() {
             value={password}
             onChangeText={setPassword}
             style={styles.input}
-            secureTextEntry
+            secureTextEntry={!passwordVisible}
+            right={
+              <TextInput.Icon 
+                icon={passwordVisible ? 'eye-off' : 'eye'}
+                onPress={() => setPasswordVisible(!passwordVisible)}
+              />
+            }
           />
 
           <Button mode="contained" onPress={handleLogin} style={styles.button} buttonColor="#35CC8E">

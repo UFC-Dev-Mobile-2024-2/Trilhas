@@ -1,10 +1,10 @@
-import { ScrollView, View, StyleSheet, Platform, Image, Text } from 'react-native';
+import { ScrollView, View, StyleSheet, Platform, Image, Text, TouchableOpacity } from 'react-native';
 import { Avatar } from 'react-native-paper';
 import { useFonts } from 'expo-font';
 import Navbar from '../components/Navbar';
 import fontStyles from '../styles/fontStyles';
 
-export default function App() {
+export default function ProfileScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'Roboto-Regular': require('../assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('../assets/fonts/Roboto-Medium.ttf'),
@@ -52,28 +52,40 @@ export default function App() {
         <View style={styles.achievements}>
           <Text style={fontStyles.m3_title_medium}> Conquistas </Text>
           <View style={styles.achievements_images}>
-            <Image source={require('../assets/images/avatar_1.png')} style={{ width: 100, height: 100 }} />
-            <Image source={require('../assets/images/avatar_2.png')} style={{ width: 100, height: 100 }} />
-            <Image source={require('../assets/images/avatar_3.png')} style={{ width: 100, height: 100 }} />
+            <TouchableOpacity onPress={() => console.log('Conquista clicada!')}>
+              <Image source={require('../assets/images/avatar_1.png')} style={{ width: 100, height: 100 }} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('Conquista clicada!')}>
+              <Image source={require('../assets/images/avatar_2.png')} style={{ width: 100, height: 100 }} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('Conquista clicada!')}>
+              <Image source={require('../assets/images/avatar_3.png')} style={{ width: 100, height: 100 }} />
+              </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.gallery}>
           <Text style={fontStyles.m3_title_medium}> Galeria </Text>
           <View style={styles.gallery_images}>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/hiking_1.png')} style={{ width: 100, height: 100 }} />
-            </View>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/hiking_2.png')} style={{ width: 100, height: 100 }} />
-            </View>
-            <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/hiking_3.png')} style={{ width: 100, height: 100 }} />
-            </View>
+            <TouchableOpacity onPress={() => console.log('Imagem da galeria clicada!')}>
+              <View style={styles.imageContainer}>
+                <Image source={require('../assets/images/hiking_1.png')} style={{ width: 100, height: 100 }} />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('Imagem da galeria clicada!')}>
+              <View style={styles.imageContainer}>
+                <Image source={require('../assets/images/hiking_2.png')} style={{ width: 100, height: 100 }} />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('Imagem da galeria clicada!')}>
+              <View style={styles.imageContainer}>
+                <Image source={require('../assets/images/hiking_3.png')} style={{ width: 100, height: 100 }} />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-      <Navbar selected={"perfil"} />
+      <Navbar selected={"perfil"} navigation={navigation} />
     </View>
   );
 }
@@ -103,7 +115,7 @@ const styles = StyleSheet.create({
   avatar: {
     backgroundColor: '#EADDFF',
     marginBottom: 20,
-    marginTop: 100,
+    marginTop: 50,
   },
   user_description: {
     alignItems: 'center',
