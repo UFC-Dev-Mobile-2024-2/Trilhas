@@ -1,3 +1,4 @@
+
 # Aplicativo "Trilhas" 🚵🥾
 
 Aplicativo desenvolvido em React Native para a disciplina de Projeto de Interfaces para Dispositivos Móveis do semestre 2024.2 de Design Digital na UFC, Campus Quixadá.
@@ -66,3 +67,10 @@ Para este projeto, utilizamos a REST-API Reqres para simular o login da aplicaç
 email: eve.holt@reqres.in
 senha: cityslicka
 ```
+## Baixando aplicativo:
+entre nesse link e clique *install*. Abrirá um QR CODE que você poderá escanear com o aplicativo do EXPO GO. 
+https://expo.dev/accounts/m_anjo/projects/Trilhas/builds/ae5550e3-5256-4b3a-a28f-2cc6789351f8
+
+**PROBLEMAS E COMENTÁRIOS**
+Foram feitas muitas tentativas de gerar um APK funcional (testes com a preview e a de produção), entretanto o aplicativo ficou entre carregar eternamente ou apenas abrir e fechar com uma mensagem de erro. 
+
